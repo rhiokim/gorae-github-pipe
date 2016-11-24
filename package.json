@@ -1,0 +1,24 @@
+{
+  "name": "gorae-github-pipe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhiokim/gorae-github-pipe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rhiokim/gorae-github-pipe/issues"
+  },
+  "homepage": "https://github.com/rhiokim/gorae-github-pipe#readme",
+  "dependencies": {
+    "github-webhook-handler": "^0.6.0"
+  }
+}
