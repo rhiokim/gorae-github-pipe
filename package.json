@@ -9,7 +9,8 @@
     "start": "node .",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1",
     "docker:images": "docker images | grep gorae",
-    "docker:run": "docker run -dit -env PORT=7777 -p 7778:7777 -v /var/run/docker.sock:/var/run/docker.sock  --name gorae-github-pipe gorae-github-pipe:latest",
+    "docker:rm": "docker rm -f gorae-github-pipe",
+    "docker:run": "docker run -dit -e PORT=7777 -e SECRET=1234 -p 7777:7777 -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/Works/my/gorae-github-pipe/tmp:/server/tmp --name gorae-github-pipe gorae-github-pipe:latest",
     "docker:build": "docker build --tag gorae-github-pipe . && npm run docker:images"
   },
   "repository": {
@@ -24,7 +25,7 @@
   },
   "homepage": "https://github.com/rhiokim/gorae-github-pipe#readme",
   "dependencies": {
-    "download-github-repo": "^0.1.3",
+    "git-clone": "^0.1.0",
     "github-webhook-handler": "^0.6.0"
   },
   "devDependencies": {

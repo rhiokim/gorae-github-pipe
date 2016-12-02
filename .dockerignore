@@ -1,2 +1,12 @@
+# system, ide
+.DS_Store
+.idea
+
+# src
 node_modules/
-config.*
+public/
+scripts/
+src/
+.eslintignore
+.git*
+*.md
