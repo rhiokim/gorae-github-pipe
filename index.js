@@ -19,7 +19,13 @@ handler.on('error', err => {
 })
 
 handler.on('push', event => {
-  const {repository} = event.payload
+  const {repository, head_commit} = event.payload
   console.log(repository.ssh_url)
-  pull(repository.ssh_url, repository.full_name)
+  pull(repository.ssh_url, repository.full_name, head_commit.id)
+    .then(() => {
+      console.log('done')
+    })
+    .catch(err => {
+      console.log(err)
+    })
 })
