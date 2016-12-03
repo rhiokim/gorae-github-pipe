@@ -1,6 +1,6 @@
 {
   "name": "gorae-github-pipe",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -26,7 +26,8 @@
   "homepage": "https://github.com/rhiokim/gorae-github-pipe#readme",
   "dependencies": {
     "git-clone": "^0.1.0",
-    "github-webhook-handler": "^0.6.0"
+    "github-webhook-handler": "^0.6.0",
+    "rimraf": "^2.5.4"
   },
   "devDependencies": {
     "commitizen": "^2.8.6",

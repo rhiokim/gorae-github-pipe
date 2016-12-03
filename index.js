@@ -1,5 +1,8 @@
 const http = require('http')
+const path = require('path')
+const rimraf = require('rimraf')
 const createHandler = require('github-webhook-handler')
+const dockerBuild = require('docker-build')
 
 const pull = require('./lib/pull')
 const port = process.env.PORT || 7777
@@ -20,10 +23,11 @@ handler.on('error', err => {
 
 handler.on('push', event => {
   const {repository, head_commit} = event.payload
-  console.log(repository.ssh_url)
-  pull(repository.ssh_url, repository.full_name, head_commit.id)
+  const target = path.join(process.cwd(), 'tmp', repository.full_name, head_commit.id)
+  rimraf.sync(target)
+  pull(repository.ssh_url, target)
     .then(() => {
-      console.log('done')
+      dockerBuild('pipe', target)
     })
     .catch(err => {
       console.log(err)
