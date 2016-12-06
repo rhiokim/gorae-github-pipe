@@ -1,6 +1,6 @@
 FROM mhart/alpine-node:7
 # FROM node:latest
-MAINTAINER [Rhio Kim <rhio.kim@gmail.com>]
+MAINTAINER Rhio Kim <rhio.kim@gmail.com>
 
 RUN apk add --no-cache git openssh
 

@@ -27,6 +27,8 @@
   "dependencies": {
     "docker-build": "git://github.com/rhiokim/docker-build.git",
     "docker-push": "git://github.com/rhiokim/docker-push.git",
+    "express": "^4.14.0",
+    "express-routemap": "^1.0.2",
     "git-clone": "^0.1.0",
     "github-webhook-handler": "^0.6.0",
     "rimraf": "^2.5.4"
