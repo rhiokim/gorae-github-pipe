@@ -5,7 +5,8 @@ const createHandler = require('github-webhook-handler')
 const dockerBuild = require('docker-build')
 const dockerPush = require('docker-push')
 
-const pull = require('../lib/pull')
+const db = require('../libs/db')
+const pull = require('../libs/pull')
 const SECRET = process.env.SECRET || process.argv[2] || ''
 const REGISTRY_HOST = process.env.REGISTRY_HOST || 'localhost'
 const REGISTRY_PORT = process.env.REGISTRY_PORT || 5000

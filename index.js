@@ -3,6 +3,7 @@ const express = require('express')
 const path = require('path')
 const displayRoutes = require('express-routemap')
 
+const registry = require('./routes/registry')
 const webhook = require('./routes/webhook')
 
 const PORT = process.env.PORT || 7777
@@ -10,6 +11,7 @@ const PORT = process.env.PORT || 7777
 const app = express()
 app.use(express.static(path.join(__dirname, '..', 'www')))
 
+app.use('/registry', registry)
 app.use('/webhook', webhook)
 
 http.createServer(app).listen(PORT, () => {
