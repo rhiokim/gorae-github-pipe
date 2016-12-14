@@ -1,3 +1,6 @@
+## Overview
+![overview](media/gorae-pipe.png)
+
 ### Build Docker Image
 ```
 $ npm run docker:build
