@@ -20,9 +20,9 @@ $ npm run docker:build
 
 ```
 $ npm install
-$ PORT=7777 \
-  SECRET="WEBHOOK-SECRET-KEY" \
-  REGISTRY_HOST=registry \
+$ PORT=8084 \
+  GITHUB_SECRET=WEBHOOK-SECRET-KEY \
+  REGISTRY_HOST=192.168.99.109 \
   REGISTRY_PORT=5000 \
   npm start
 ```

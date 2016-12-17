@@ -12,7 +12,8 @@ RUN ssh-keygen -t rsa -b 4096 -f /root/.ssh/id_rsa
 RUN ssh-keyscan -H github.com,192.30.253.112 >> ~/.ssh/known_hosts
 RUN cat /root/.ssh/id_rsa.pub
 
-COPY lib lib
+COPY libs libs
+COPY routes routes
 COPY index.js index.js
 COPY package.json package.json
 
@@ -21,8 +22,6 @@ RUN npm cache clean
 # RUN rm -rf /root/.npm
 # RUN npm uninstall -g npm
 
-ENV PORT 7777
-
-EXPOSE $PORT
+EXPOSE 8082
 
 CMD ["npm", "start"]
