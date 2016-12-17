@@ -40,11 +40,11 @@
     "github-webhook-handler": "^0.6.0",
     "http-proxy": "^1.16.2",
     "mkdirp": "^0.5.1",
-    "pouchdb": "^6.0.7",
+    "pouchdb": "^6.1.0",
     "rimraf": "^2.5.4"
   },
   "devDependencies": {
-    "commitizen": "^2.8.6",
+    "commitizen": "^2.9.0",
     "conventional-changelog-cli": "^1.2.0",
     "cz-conventional-changelog": "^1.2.0",
     "eslint": "^3.10.2",
