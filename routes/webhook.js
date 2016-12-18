@@ -5,12 +5,11 @@ const createHandler = require('github-webhook-handler')
 // const dockerBuild = require('docker-build')
 const dockerBuild = require('../libs/dockerBuild')
 // const dockerPush = require('docker-push')
+const dockerPush = require('../libs/dockerPush')
 
 const db = require('../libs/db')
 const pull = require('../libs/pull')
 const SECRET = process.env.GITHUB_SECRET || process.argv[2] || ''
-const REGISTRY_HOST = process.env.REGISTRY_HOST || 'localhost'
-const REGISTRY_PORT = process.env.REGISTRY_PORT || 5000
 
 const handler = createHandler({ path: '/', secret: SECRET })
 const router = express.Router()
@@ -37,13 +36,15 @@ handler.on('ping', event => {
 handler.on('push', event => {
   const {repository, head_commit} = event.payload
   const target = path.join(process.cwd(), 'tmp', repository.full_name, head_commit.id)
+  const repoTag = repository.full_name
 
   rimraf.sync(target)
 
   pull(repository.ssh_url, target)
     .then(() => {
-      dockerBuild(repository.full_name, target, () => {
-        console.log('build')
+      dockerBuild(repoTag, target, () => {
+        console.log('built')
+        dockerPush(repoTag, {tag: 'v0.0.1'}, () => {})
       })
       // dockerBuild(repository.full_name, target, () => {
       //   dockerPush(repository.full_name, `${REGISTRY_HOST}:${REGISTRY_PORT}/${repository.full_name}`, () => {

@@ -32,8 +32,6 @@
   "homepage": "https://github.com/rhiokim/gorae-github-pipe#readme",
   "dependencies": {
     "cors": "^2.8.1",
-    "docker-build": "git://github.com/rhiokim/docker-build.git",
-    "docker-push": "git://github.com/rhiokim/docker-push.git",
     "dockerode": "^2.3.1",
     "express": "^4.14.0",
     "express-routemap": "^1.0.2",

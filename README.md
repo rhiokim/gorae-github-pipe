@@ -10,8 +10,14 @@ $ npm run docker:build
 
 1. build `gorae-github-pipe` image
 2. get the auto generated ssh-key of `gorae-github-pipe` during build
-3. register ssh-key on github
+  - or http://[GORAE REGISTRY HOST:PORT]/#/settings/sshkey
+3. register ssh-key on [github](https://github.com/settings/ssh)
 4. run the `gorae-github-pipe` with some environment variables below
+5. setting the webhook in github repository
+  - Payload URL: http://[GORAE REGISTRY HOST:PORT]/webhook
+  - Content Type: `application/json`
+  - Trigger: `Just the push event`
+  - Active
 
 ```
 ```
